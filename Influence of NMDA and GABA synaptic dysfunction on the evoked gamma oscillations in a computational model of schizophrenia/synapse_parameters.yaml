@@ -1,0 +1,19 @@
+AMPA:
+  model: >
+    g_ampa = scl*(g_r + g_d)/norm : siemens
+    dg_r/dt = -g_r/tau_r
+    dg_d/dt = -g_d/tau_d
+    w : siemens (constant over dt)
+    tau_r = 0.5*ms : second (constant)
+    tau_d = 20*ms : second (constant)
+    scl = 1 : 1
+    norm = 0.472689 : 1
+  on_pre: >
+    g_r += w
+    g_d += w
+NMDA:
+GABA_A:
+#Questions
+#- Why only GABA_A has no noise?
+#- Don't they have any delays?
+#- What is 
