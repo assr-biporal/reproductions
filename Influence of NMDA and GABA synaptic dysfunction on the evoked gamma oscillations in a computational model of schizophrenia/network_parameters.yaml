@@ -2,6 +2,6 @@ AMPA:
   AMPA:
     p: 0.1
     namespace:
-      w: 825 #nS
-      noise: 0 #nS?
+      w: '825*nS'
+      noise: '0*nS'
   NMDA:
