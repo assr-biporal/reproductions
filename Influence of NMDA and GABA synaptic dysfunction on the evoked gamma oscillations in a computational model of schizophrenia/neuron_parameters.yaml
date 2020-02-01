@@ -1,27 +1,36 @@
 Pyramidal_Cells:
-  N: 800
-  eqs: >
-    dv/dt=-(v-v_res)/tau_m + I_syn
-    I_syn=g_ampa*v + g_nmda*v/(1.0+exp(-0.062*v)/3.57) + g_gaba*(v+v_res) : ampere
-    tau_m=20*ms : second (constant)
-    v_res=-70*mV : volt (constant)
-  threshold: "v>-52*mV"
-  reset: "v=-59*mV"
+#  N: 800
+  eqs: 'Spencer2009_neuron'
+  threshold: "V>-52*mV"
+  reset: "V=-59*mV"
+  namespace:
+    g_m: '25*nS'
+    C_m: '0.5*nF'
+    V_res: '-70*mV'
+    V_E: '0*mV'
+    V_I: '-70*mV'
+    C_Mg: '1.0'
 Regular-Spiking_Interneurons:
-  N: 150
-  eqs: >
-    dv/dt=-(v-v_res)/tau_m + I_syn
-    I_syn=g_ampa*v + g_nmda*v/(1.0+exp(-0.062*v)/3.57) + g_gaba*(v+v_res) : ampere
-    tau_m=20*ms : second (constant)
-    v_res=-70*mV : volt (constant)
+#  N: 150
+  eqs: 'Spencer2009_neuron'
   threshold: "v>-52*mV"
   reset: "v=-59*mV"
+  namespace:
+    g_m: '25*nS' #temporary
+    C_m: '0.5*nF' #temporary
+    V_res: '-70*mV'
+    V_E: '0*mV'
+    V_I: '-70*mV'
+    C_Mg: '1.0'
 Fast-Spiking_Interneurons:
-  N: 50
-  eqs: >
-    dv/dt=-(v-v_res)/tau_m + I_syn
-    I_syn=g_ampa*v + g_nmda*v/(1.0+exp(-0.062*v)/3.57) + g_gaba*(v+v_res) : ampere
-    tau_m=10*ms : second (constant)
-    v_res=-70*mV : volt (constant)
+#  N: 50
+  eqs: 'Spencer2009_neuron'
   threshold: "v>-52*mV"
   reset: "v=-59*mV"
+  namespace:
+    g_m: '20*nS'
+    C_m: '0.2*nF'
+    V_res: '-70*mV'
+    V_E: '0*mV'
+    V_I: '-70*mV'
+    C_Mg: '1.0'

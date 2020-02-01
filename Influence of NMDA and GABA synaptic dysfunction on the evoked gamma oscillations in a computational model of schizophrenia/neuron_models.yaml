@@ -1,0 +1,9 @@
+Spencer2009_neuron:
+  eqs: "dV/dt = (-g_m*(V-V_res) + I_syn)/C_m : volt\n
+    I_syn = I_AMPA + I_NMDA + I_GABA : ampere\n
+    I_AMPA = g_AMPA*(V-V_E) : ampere\n
+    I_NMDA = g_NMDA*(V-V_E)/(1.0+C_Mg*exp(-0.062*V/mV)/3.57) : ampere\n
+    I_GABA = g_GABA*(V-V_I) : ampere\n
+    g_AMPA=0*nS : siemens\n
+    g_NMDA=0*nS : siemens\n
+    g_GABA=0*nS : siemens\n"
