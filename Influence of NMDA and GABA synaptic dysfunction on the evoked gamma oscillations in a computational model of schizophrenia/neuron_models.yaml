@@ -4,6 +4,6 @@ Spencer2009_neuron:
     I_AMPA = g_AMPA*(V-V_E) : ampere\n
     I_NMDA = g_NMDA*(V-V_E)/(1.0+C_Mg*exp(-0.062*V/mV)/3.57) : ampere\n
     I_GABA = g_GABA*(V-V_I) : ampere\n
-    g_AMPA=0*nS : siemens\n
-    g_NMDA=0*nS : siemens\n
-    g_GABA=0*nS : siemens\n"
+    g_AMPA : siemens\n
+    g_NMDA : siemens\n
+    g_GABA : siemens\n"

@@ -1,0 +1,46 @@
+AMPA:
+  model: "
+    g_AMPA_post = scl*(g_r + g_d)/norm : siemens (summed)\n
+    dg_r/dt = -g_r/tau_r + noise : siemens (clock-driven)\n
+    dg_d/dt = -g_d/tau_d + noise : siemens (clock-driven)\n
+    norm = 0.472689 : 1\n
+    tau_r = 0.5*ms : second\n
+    tau_d = 20*ms\n
+    noise = 0*uS/ms\n
+    " #noise=0 is temporary
+  on_pre: "
+    g_r += w\n
+    g_d += w\n
+    "
+NMDA:
+  model: "
+    g_NMDA_post = scl*(g_r + g_d)/norm : siemens (summed)\n
+    dg_r/dt = -g_r/tau_r + noise : siemens (clock-driven)\n
+    dg_d/dt = -g_d/tau_d + noise : siemens (clock-driven)\n
+    norm = 0.904821 : 1\n
+    tau_r = 2*ms : second\n
+    tau_d = 100*ms\n
+    noise = 0*uS/ms\n
+    " #noise=0 is temporary
+  on_pre: "
+    g_r += w\n
+    g_d += w\n
+    "
+GABA:
+  model: "
+    g_GABA_post = scl*(g_r + g_d)/norm : siemens (summed)\n
+    dg_r/dt = -g_r/tau_r + noise : siemens (clock-driven)\n
+    dg_d/dt = -g_d/tau_d + noise: siemens (clock-driven)\n
+    norm = 0.697016 : 1\n
+    tau_r = 0.5*ms : second\n
+    tau_d = 5*ms\n
+    noise = 0*uS/ms\n
+    " #noise=0 is temporary
+  on_pre: "
+    g_r += w\n
+    g_d += w\n
+    "
+#Questions
+#- Why only GABA_A has no noise?
+#- Don't they have any delays?
+#- What is 

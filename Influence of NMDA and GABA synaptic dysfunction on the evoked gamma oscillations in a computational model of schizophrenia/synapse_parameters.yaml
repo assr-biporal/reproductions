@@ -1,19 +1,148 @@
+#synapse_type:from_neuron:to_neuron
 AMPA:
-  model: >
-    g_ampa = scl*(g_r + g_d)/norm : siemens
-    dg_r/dt = -g_r/tau_r
-    dg_d/dt = -g_d/tau_d
-    w : siemens (constant over dt)
-    tau_r = 0.5*ms : second (constant)
-    tau_d = 20*ms : second (constant)
-    scl = 1 : 1
-    norm = 0.472689 : 1
-  on_pre: >
-    g_r += w
-    g_d += w
+  Pyramidal_Cells:
+    Pyramidal_Cells:
+      p: 0.1
+      namespace:
+        w: '825*nS'
+        scl: '1'
+    Regular-Spiking_Interneurons:
+      p: 0.4
+      namespace:
+        w: '660*nS'
+        scl: '1'
+    Fast-Spiking_Interneurons:
+      p: 0.4
+      namespace:
+        w: '1567.5*nS'
+        scl: '1'
+  Regular-Spiking_Interneurons:
+    Pyramidal_Cells:
+      p: 0.5
+      namespace:
+        w: '660*nS'
+        scl: '1'
+    Regular-Spiking_Interneurons:
+      p: 0.15
+      namespace:
+        w: '660*nS'
+        scl: '1'
+    Fast-Spiking_Interneurons:
+      p: 0.5
+      namespace:
+        w: '660*nS'
+        scl: '1'
+  Fast-Spiking_Interneurons:
+    Pyramidal_Cells:
+      p: 0.5
+      namespace:
+        w: '1567.5*nS'
+        scl: '1'
+    Regular-Spiking_Interneurons:
+      p: 0.35
+      namespace:
+        w: '825*nS'
+        scl: '1'
+    Fast-Spiking_Interneurons:
+      p: 0.6
+      namespace:
+        w: '825*nS'
+        scl: '1'
 NMDA:
-GABA_A:
-#Questions
-#- Why only GABA_A has no noise?
-#- Don't they have any delays?
-#- What is 
+  Pyramidal_Cells:
+    Pyramidal_Cells:
+      p: 0.1
+      namespace:
+        w: '825*nS'
+        scl: '0.45'
+    Regular-Spiking_Interneurons:
+      p: 0.4
+      namespace:
+        w: '660*nS'
+        scl: '0.1'
+    Fast-Spiking_Interneurons:
+      p: 0.4
+      namespace:
+        w: '1567.5*nS'
+        scl: '0.1'
+  Regular-Spiking_Interneurons:
+    Pyramidal_Cells:
+      p: 0.5
+      namespace:
+        w: '660*nS'
+        scl: '0.45'
+    Regular-Spiking_Interneurons:
+      p: 0.15
+      namespace:
+        w: '660*nS'
+        scl: '0.1'
+    Fast-Spiking_Interneurons:
+      p: 0.5
+      namespace:
+        w: '660*nS'
+        scl: '0.1'
+  Fast-Spiking_Interneurons:
+    Pyramidal_Cells:
+      p: 0.5
+      namespace:
+        w: '1567.5*nS'
+        scl: '0.45'
+    Regular-Spiking_Interneurons:
+      p: 0.35
+      namespace:
+        w: '825*nS'
+        scl: '0.1'
+    Fast-Spiking_Interneurons:
+      p: 0.6
+      namespace:
+        w: '825*nS'
+        scl: '0.1'
+GABA:
+  Pyramidal_Cells:
+    Pyramidal_Cells:
+      p: 0.1
+      namespace:
+        w: '825*nS'
+        scl: '1'
+    Regular-Spiking_Interneurons:
+      p: 0.4
+      namespace:
+        w: '660*nS'
+        scl: '1'
+    Fast-Spiking_Interneurons:
+      p: 0.4
+      namespace:
+        w: '1567.5*nS'
+        scl: '1'
+  Regular-Spiking_Interneurons:
+    Pyramidal_Cells:
+      p: 0.5
+      namespace:
+        w: '660*nS'
+        scl: '1'
+    Regular-Spiking_Interneurons:
+      p: 0.15
+      namespace:
+        w: '660*nS'
+        scl: '1'
+    Fast-Spiking_Interneurons:
+      p: 0.5
+      namespace:
+        w: '660*nS'
+        scl: '1'
+  Fast-Spiking_Interneurons:
+    Pyramidal_Cells:
+      p: 0.5
+      namespace:
+        w: '1567.5*nS'
+        scl: '1'
+    Regular-Spiking_Interneurons:
+      p: 0.35
+      namespace:
+        w: '825*nS'
+        scl: '1'
+    Fast-Spiking_Interneurons:
+      p: 0.6
+      namespace:
+        w: '825*nS'
+        scl: '1'
