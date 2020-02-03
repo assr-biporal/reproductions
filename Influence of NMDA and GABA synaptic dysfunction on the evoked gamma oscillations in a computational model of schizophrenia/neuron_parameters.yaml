@@ -1,5 +1,5 @@
 Pyramidal_Cells:
-#  N: 800
+  N: 800
   eqs: 'Spencer2009_neuron'
   threshold: "V>-52*mV"
   reset: "V=-59*mV"
@@ -11,7 +11,7 @@ Pyramidal_Cells:
     V_I: '-70*mV'
     C_Mg: '1.0'
 Regular_Spiking_Interneurons:
-#  N: 150
+  N: 150
   eqs: 'Spencer2009_neuron'
   threshold: "v>-52*mV"
   reset: "v=-59*mV"
@@ -23,7 +23,7 @@ Regular_Spiking_Interneurons:
     V_I: '-70*mV'
     C_Mg: '1.0'
 Fast_Spiking_Interneurons:
-#  N: 50
+  N: 50
   eqs: 'Spencer2009_neuron'
   threshold: "v>-52*mV"
   reset: "v=-59*mV"
