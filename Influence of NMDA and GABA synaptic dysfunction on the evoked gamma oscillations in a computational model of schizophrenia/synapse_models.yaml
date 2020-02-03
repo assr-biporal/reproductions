@@ -32,7 +32,7 @@ GABA:
   model: "
     g_GABA_post = scl*(g_r + g_d)/norm : siemens (summed)\n
     dg_r/dt = -g_r/tau_r + noise : siemens (clock-driven)\n
-    dg_d/dt = -g_d/tau_d + noise: siemens (clock-driven)\n
+    dg_d/dt = -g_d/tau_d + noise : siemens (clock-driven)\n
     "
   on_pre: "
     g_r += w\n
