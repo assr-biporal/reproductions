@@ -6,44 +6,44 @@ AMPA:
       namespace:
         w: '825*nS'
         scl: '1'
-    Regular-Spiking_Interneurons:
+    Regular_Spiking_Interneurons:
       p: 0.4
       namespace:
         w: '660*nS'
         scl: '1'
-    Fast-Spiking_Interneurons:
+    Fast_Spiking_Interneurons:
       p: 0.4
       namespace:
         w: '1567.5*nS'
         scl: '1'
-  Regular-Spiking_Interneurons:
+  Regular_Spiking_Interneurons:
     Pyramidal_Cells:
       p: 0.5
       namespace:
         w: '660*nS'
         scl: '1'
-    Regular-Spiking_Interneurons:
+    Regular_Spiking_Interneurons:
       p: 0.15
       namespace:
         w: '660*nS'
         scl: '1'
-    Fast-Spiking_Interneurons:
+    Fast_Spiking_Interneurons:
       p: 0.5
       namespace:
         w: '660*nS'
         scl: '1'
-  Fast-Spiking_Interneurons:
+  Fast_Spiking_Interneurons:
     Pyramidal_Cells:
       p: 0.5
       namespace:
         w: '1567.5*nS'
         scl: '1'
-    Regular-Spiking_Interneurons:
+    Regular_Spiking_Interneurons:
       p: 0.35
       namespace:
         w: '825*nS'
         scl: '1'
-    Fast-Spiking_Interneurons:
+    Fast_Spiking_Interneurons:
       p: 0.6
       namespace:
         w: '825*nS'
@@ -55,44 +55,44 @@ NMDA:
       namespace:
         w: '825*nS'
         scl: '0.45'
-    Regular-Spiking_Interneurons:
+    Regular_Spiking_Interneurons:
       p: 0.4
       namespace:
         w: '660*nS'
         scl: '0.1'
-    Fast-Spiking_Interneurons:
+    Fast_Spiking_Interneurons:
       p: 0.4
       namespace:
         w: '1567.5*nS'
         scl: '0.1'
-  Regular-Spiking_Interneurons:
+  Regular_Spiking_Interneurons:
     Pyramidal_Cells:
       p: 0.5
       namespace:
         w: '660*nS'
         scl: '0.45'
-    Regular-Spiking_Interneurons:
+    Regular_Spiking_Interneurons:
       p: 0.15
       namespace:
         w: '660*nS'
         scl: '0.1'
-    Fast-Spiking_Interneurons:
+    Fast_Spiking_Interneurons:
       p: 0.5
       namespace:
         w: '660*nS'
         scl: '0.1'
-  Fast-Spiking_Interneurons:
+  Fast_Spiking_Interneurons:
     Pyramidal_Cells:
       p: 0.5
       namespace:
         w: '1567.5*nS'
         scl: '0.45'
-    Regular-Spiking_Interneurons:
+    Regular_Spiking_Interneurons:
       p: 0.35
       namespace:
         w: '825*nS'
         scl: '0.1'
-    Fast-Spiking_Interneurons:
+    Fast_Spiking_Interneurons:
       p: 0.6
       namespace:
         w: '825*nS'
@@ -104,44 +104,44 @@ GABA:
       namespace:
         w: '825*nS'
         scl: '1'
-    Regular-Spiking_Interneurons:
+    Regular_Spiking_Interneurons:
       p: 0.4
       namespace:
         w: '660*nS'
         scl: '1'
-    Fast-Spiking_Interneurons:
+    Fast_Spiking_Interneurons:
       p: 0.4
       namespace:
         w: '1567.5*nS'
         scl: '1'
-  Regular-Spiking_Interneurons:
+  Regular_Spiking_Interneurons:
     Pyramidal_Cells:
       p: 0.5
       namespace:
         w: '660*nS'
         scl: '1'
-    Regular-Spiking_Interneurons:
+    Regular_Spiking_Interneurons:
       p: 0.15
       namespace:
         w: '660*nS'
         scl: '1'
-    Fast-Spiking_Interneurons:
+    Fast_Spiking_Interneurons:
       p: 0.5
       namespace:
         w: '660*nS'
         scl: '1'
-  Fast-Spiking_Interneurons:
+  Fast_Spiking_Interneurons:
     Pyramidal_Cells:
       p: 0.5
       namespace:
         w: '1567.5*nS'
         scl: '1'
-    Regular-Spiking_Interneurons:
+    Regular_Spiking_Interneurons:
       p: 0.35
       namespace:
         w: '825*nS'
         scl: '1'
-    Fast-Spiking_Interneurons:
+    Fast_Spiking_Interneurons:
       p: 0.6
       namespace:
         w: '825*nS'
