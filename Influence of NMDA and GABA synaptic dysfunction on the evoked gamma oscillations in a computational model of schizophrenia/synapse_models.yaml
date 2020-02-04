@@ -1,8 +1,10 @@
 AMPA:
   model: "
-    g_AMPA_post = scl*(g_r + g_d)/norm : siemens (summed)\n
-    dg_r/dt = -g_r/tau_r + noise : siemens (clock-driven)\n
-    dg_d/dt = -g_d/tau_d + noise : siemens (clock-driven)\n
+    I_syn_post = I_AMPA + I_NMDA + I_GABA : siemens (summed)\n
+    I_AMPA = g_AMPA*(V_pre-V_E) : ampere\n
+    g_AMPA = scl*(g_AMPA_r + g_AMPA_d)/norm_AMPA : siemens (clock-driven)\n
+    dg_AMPA_r/dt = -g_AMPA_r/tau_AMPA_r : siemens (clock-driven)\n
+    dg_AMPA_d/dt = -g_AMPA_d/tau_AMPA_d : siemens (clock-driven)\n
     "
   on_pre: "
     g_r += w\n
@@ -16,8 +18,8 @@ AMPA:
 NMDA:
   model: "
     g_NMDA_post = scl*(g_r + g_d)/norm : siemens (summed)\n
-    dg_r/dt = -g_r/tau_r + noise : siemens (clock-driven)\n
-    dg_d/dt = -g_d/tau_d + noise : siemens (clock-driven)\n
+    dg_r/dt = -g_r/tau_r : siemens (clock-driven)\n
+    dg_d/dt = -g_d/tau_d : siemens (clock-driven)\n
     "
   on_pre: "
     g_r += w\n
@@ -31,8 +33,8 @@ NMDA:
 GABA:
   model: "
     g_GABA_post = scl*(g_r + g_d)/norm : siemens (summed)\n
-    dg_r/dt = -g_r/tau_r + noise : siemens (clock-driven)\n
-    dg_d/dt = -g_d/tau_d + noise : siemens (clock-driven)\n
+    dg_r/dt = -g_r/tau_r : siemens (clock-driven)\n
+    dg_d/dt = -g_d/tau_d : siemens (clock-driven)\n
     "
   on_pre: "
     g_r += w\n
