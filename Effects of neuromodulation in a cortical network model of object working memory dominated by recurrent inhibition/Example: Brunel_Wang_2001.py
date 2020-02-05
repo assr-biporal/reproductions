@@ -7,6 +7,8 @@ Analog to figure 6b in the paper.
 
 BRUNEL, Nicolas et WANG, Xiao-Jing. Effects of neuromodulation in a cortical network model of object working memory 
 dominated by recurrent inhibition. Journal of computational neuroscience, 2001, vol. 11, no 1, p. 63-85.
+
+copy from https://github.com/brian-team/brian2/blob/master/examples/frompapers/Brunel_Wang_2001.py
 '''
 
 from brian2 import *
