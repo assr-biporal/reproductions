@@ -109,9 +109,9 @@ ds_GABA / dt = - s_GABA / tau_GABA : 1
 '''
 
 P_E = NeuronGroup(N_E, eqs_E, threshold='v > V_thr', reset='v = V_reset', refractory=tau_rp_E, method='euler')
-P_E.v = V_L
+#P_E.v = V_L
 P_I = NeuronGroup(N_I, eqs_I, threshold='v > V_thr', reset='v = V_reset', refractory=tau_rp_I, method='euler')
-P_I.v = V_L
+#P_I.v = V_L
 
 eqs_glut = '''
 s_NMDA_tot_post = w * s_NMDA : 1 (summed)
