@@ -1,0 +1,10 @@
+dv/dt = (-g_m*(v - V_L) - I_syn)/C_m : volt (unless refractory)
+I_syn = I_AMPA_ext + I_AMPA_rec + I_NMDA_rec + I_GABA_rec : ampere
+I_AMPA_ext = g_AMPA_ext * (v - V_E) * s_AMPA_ext : ampere
+I_AMPA_rec = g_AMPA_rec * (v - V_E) * s_AMPA_rec : ampere
+ds_AMPA_ext/dt = -s_AMPA_ext/tau_AMPA : 1
+ds_AMPA_rec/dt = -s_AMPA_rec/tau_AMPA : 1
+I_NMDA_rec = g_NMDA_rec * (v - V_E) / (1 + Mg2*exp(-0.062*v/mV)/3.57) * s_NMDA_rec : ampere
+s_NMDA_rec : 1
+I_GABA_rec = g_GABA_rec * (v - V_I) / s_GABA_rec : ampere
+ds_GABA_rec/dt = -s_GABA_rec/tau_GABA : 1
