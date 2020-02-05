@@ -1,37 +1,37 @@
-- Pyramidal_Cells:
-  - N: 800
-  - threshold: 'v > -50*mV'
-  - reset: 'v = -55*mV'
-  - refractory: '2*ms'
-  - namespace:
-    - V_L: '-70*mV'
-    - V_E: '0*mV'
-    - V_I: '-70*mV'
-    - C_m: '0.5*nF'
-    - g_m: '25*nS'
-    - g_AMPA_ext: '2.08*nS'
-    - g_AMPA_rec: '0.104*nS'
-    - tau_AMPA: '2*ms'
-    - g_NMDA_rec: '0.327*nS'
-    - Mg2: '1'
-    - g_GABA_rec: '1.25*nS'
-    - tau_GABA: '10*ms'
-- Interneurons:
-  - N: 200
-  - threshold: 'v > -50*mV'
-  - reset: 'v = -55*mV'
-  - refractory: '1*ms'
-  - namespace:
-    - V_L: '-70*mV'
-    - V_E: '0*mV'
-    - V_I: '-70*mV'
-    - C_m: '0.2*nF'
-    - g_m: '20*nS'
-    - g_AMPA_ext: '1.62*nS'
-    - g_AMPA_rec: '0.081*nS'
-    - tau_AMPA: '2*ms'
-    - g_NMDA_rec: '0.258*nS'
-    - Mg2: '1'
-    - g_GABA_rec: '0.973*nS'
-    - tau_GABA: '10*ms'
+Pyramidal_Cells:
+  N: 800
+  threshold: 'v > -50*mV'
+  reset: 'v = -55*mV'
+  refractory: '2*ms'
+  namespace:
+    V_L: '-70*mV'
+    V_E: '0*mV'
+    V_I: '-70*mV'
+    C_m: '0.5*nF'
+    g_m: '25*nS'
+    g_AMPA_ext: '2.08*nS'
+    g_AMPA_rec: '0.104*nS'
+    tau_AMPA: '2*ms'
+    g_NMDA_rec: '0.327*nS'
+    Mg2: '1'
+    g_GABA_rec: '1.25*nS'
+    tau_GABA: '10*ms'
+Interneurons:
+  N: 200
+  threshold: 'v > -50*mV'
+  reset: 'v = -55*mV'
+  refractory: '1*ms'
+  namespace:
+    V_L: '-70*mV'
+    V_E: '0*mV'
+    V_I: '-70*mV'
+    C_m: '0.2*nF'
+    g_m: '20*nS'
+    g_AMPA_ext: '1.62*nS'
+    g_AMPA_rec: '0.081*nS'
+    tau_AMPA: '2*ms'
+    g_NMDA_rec: '0.258*nS'
+    Mg2: '1'
+    g_GABA_rec: '0.973*nS'
+    tau_GABA: '10*ms'
     
