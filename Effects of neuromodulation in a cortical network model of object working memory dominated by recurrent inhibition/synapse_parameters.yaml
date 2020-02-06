@@ -1,0 +1,15 @@
+AMPA_ext: {}
+AMPA_NMDA_rec:
+  Pyramidal_Cells:
+    Pyramidal_Cells:
+      condition: 'i != j'
+      namespace:
+        w: '1'
+    Interneurons:
+      namespace:
+        w: '1'
+GABA_rec:
+  Interneurons:
+    Pyramidal_Cells: {}
+    Interneurons:
+      condition: 'i != j'

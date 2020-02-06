@@ -1,0 +1,23 @@
+AMPA_ext:
+  on_pre: "
+    s_AMPA_ext += 1\n
+    "
+AMPA_NMDA_rec:
+  model: "
+    s_NMDA_rec_tot_post = w * s_NMDA_rec : 1 (summed)\n
+    ds_NMDA_rec / dt = - s_NMDA_rec / tau_NMDA_decay + alpha * x * (1 - s_NMDA_rec) : 1 (clock-driven)\n
+    dx / dt = - x / tau_NMDA_rise : 1 (clock-driven)\n
+    w : 1\n
+    "
+  on_pre: "
+    s_AMPA_rec += w\n
+    x += 1\n
+    "
+  namespace:
+    tau_NMDA_rise: '2*ms'
+    tau_NMDA_decay: '100*ms'
+    alpha: '0.5/ms'
+GABA_rec:
+  on_pre: "
+    s_GABA_rec += 1\n
+  "

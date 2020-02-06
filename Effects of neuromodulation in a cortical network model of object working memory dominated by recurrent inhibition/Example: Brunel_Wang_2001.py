@@ -27,15 +27,16 @@ P_E = neurongroup_dict['Pyramidal_Cells']
 P_I = neurongroup_dict['Interneurons']
 #P_I.v = V_L
 
+with open('synapse_models.yaml', 'r') as models_f, open('synapse_parameters.yaml', 'r') as params_f:
+    synapse_dict = load_models.load_synapses(
+        neurongroup_dict,
+        yaml.safe_load(models_f),
+        yaml.safe_load(params_f)
+    )
 
 # external stimuli
 rate = 3 * Hz
 C_ext = 800
-
-# NMDA (excitatory)
-tau_NMDA_rise = 2. * ms
-tau_NMDA_decay = 100. * ms
-alpha = 0.5 / ms
 
 # subpopulations
 f = 0.1
@@ -46,30 +47,8 @@ w_plus = 2.1
 w_minus = 1. - f * (w_plus - 1.) / (1. - f)
 
 
-eqs_glut = '''
-s_NMDA_rec_tot_post = w * s_NMDA_rec : 1 (summed)
-ds_NMDA_rec / dt = - s_NMDA_rec / tau_NMDA_decay + alpha * x * (1 - s_NMDA_rec) : 1 (clock-driven)
-dx / dt = - x / tau_NMDA_rise : 1 (clock-driven)
-w : 1
-'''
-
-eqs_pre_glut = '''
-s_AMPA_rec += w
-x += 1
-'''
-
-eqs_pre_gaba = '''
-s_GABA_rec += 1
-'''
-
-eqs_pre_ext = '''
-s_AMPA_ext += 1
-'''
-
 # E to E
-C_E_E = Synapses(P_E, P_E, model=eqs_glut, on_pre=eqs_pre_glut, method='euler')
-C_E_E.connect('i != j')
-C_E_E.w[:] = 1
+C_E_E = synapse_dict['AMPA_NMDA_rec']['Pyramidal_Cells']['Pyramidal_Cells']
 
 for pi in range(N_non, N_non + p * N_sub, N_sub):
 
@@ -79,18 +58,6 @@ for pi in range(N_non, N_non + p * N_sub, N_sub):
     # internal current subpopulation to current subpopulation
     C_E_E.w[C_E_E.indices[pi:pi + N_sub, pi:pi + N_sub]] = w_plus
 
-# E to I
-C_E_I = Synapses(P_E, P_I, model=eqs_glut, on_pre=eqs_pre_glut, method='euler')
-C_E_I.connect()
-C_E_I.w[:] = 1
-
-# I to I
-C_I_I = Synapses(P_I, P_I, on_pre=eqs_pre_gaba, method='euler')
-C_I_I.connect('i != j')
-
-# I to E
-C_I_E = Synapses(P_I, P_E, on_pre=eqs_pre_gaba, method='euler')
-C_I_E.connect()
 
 # external noise
 C_P_E = PoissonInput(P_E, 's_AMPA_ext', C_ext, rate, '1')
@@ -106,7 +73,7 @@ input1 = PoissonInput(P_E[N_non:N_non + N_sub], 's_AMPA_ext', C_selection, rate_
 stimuli2 = TimedArray(np.r_[np.zeros(80), np.ones(2), np.zeros(100)], dt=25 * ms)
 input2 = PoissonInput(P_E[N_non + N_sub:N_non + 2 * N_sub], 's_AMPA_ext', C_selection, rate_selection, 'stimuli2(t)')
 
-# at 4s, reset selection
+# at 3s, reset selection
 stimuli_reset = TimedArray(np.r_[np.zeros(120), np.ones(2), np.zeros(100)], dt=25 * ms)
 input_reset_I = PoissonInput(P_E, 's_AMPA_ext', C_ext, rate_selection, 'stimuli_reset(t)')
 input_reset_E = PoissonInput(P_I, 's_AMPA_ext', C_ext, rate_selection, 'stimuli_reset(t)')
