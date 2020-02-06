@@ -31,3 +31,4 @@ if __name__ == '__main__':
             yaml.safe_load(params_f)
         )
     print(neurongroup_dict)
+    print(neurongroup_dict['Interneurons'].namespace)
