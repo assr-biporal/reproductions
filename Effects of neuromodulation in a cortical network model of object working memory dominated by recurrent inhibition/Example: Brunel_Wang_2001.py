@@ -51,6 +51,7 @@ w_minus = 1. - f * (w_plus - 1.) / (1. - f)
 
 # E to E
 C_E_E = synapse_dict['AMPA_NMDA_rec']['Pyramidal_Cells']['Pyramidal_Cells']
+C_E_E.w[:] = 1
 
 for pi in range(N_non, N_non + p * N_sub, N_sub):
 
@@ -60,6 +61,14 @@ for pi in range(N_non, N_non + p * N_sub, N_sub):
     # internal current subpopulation to current subpopulation
     C_E_E.w[C_E_E.indices[pi:pi + N_sub, pi:pi + N_sub]] = w_plus
 
+#plot C_E_E.w
+import matplotlib.pyplot as plt
+
+W = numpy.full((P_E._N, P_E._N), 0.)
+W[C_E_E.i[:], C_E_E.j[:]] = C_E_E.w[:]
+plt.imshow(W)
+plt.colorbar()
+plt.show()
 
 # external noise
 C_P_E = brian2.PoissonInput(P_E, 's_AMPA_ext', C_ext, rate, '1')
