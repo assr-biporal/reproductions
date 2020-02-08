@@ -11,7 +11,9 @@ dominated by recurrent inhibition. Journal of computational neuroscience, 2001, 
 copy from https://github.com/brian-team/brian2/blob/master/examples/frompapers/Brunel_Wang_2001.py
 '''
 
-from brian2 import *
+import brian2
+from brian2 import Hz, ms
+import numpy
 
 
 import yaml
@@ -60,63 +62,64 @@ for pi in range(N_non, N_non + p * N_sub, N_sub):
 
 
 # external noise
-C_P_E = PoissonInput(P_E, 's_AMPA_ext', C_ext, rate, '1')
-C_P_I = PoissonInput(P_I, 's_AMPA_ext', C_ext, rate, '1')
+C_P_E = brian2.PoissonInput(P_E, 's_AMPA_ext', C_ext, rate, '1')
+C_P_I = brian2.PoissonInput(P_I, 's_AMPA_ext', C_ext, rate, '1')
 
 # at 1s, select population 1
 C_selection = int(f * C_ext)
 rate_selection = 25 * Hz
-stimuli1 = TimedArray(np.r_[np.zeros(40), np.ones(2), np.zeros(100)], dt=25 * ms)
-input1 = PoissonInput(P_E[N_non:N_non + N_sub], 's_AMPA_ext', C_selection, rate_selection, 'stimuli1(t)')
+stimuli1 = brian2.TimedArray(numpy.r_[numpy.zeros(40), numpy.ones(2), numpy.zeros(100)], dt=25 * ms)
+input1 = brian2.PoissonInput(P_E[N_non:N_non + N_sub], 's_AMPA_ext', C_selection, rate_selection, 'stimuli1(t)')
 
 # at 2s, select population 2
-stimuli2 = TimedArray(np.r_[np.zeros(80), np.ones(2), np.zeros(100)], dt=25 * ms)
-input2 = PoissonInput(P_E[N_non + N_sub:N_non + 2 * N_sub], 's_AMPA_ext', C_selection, rate_selection, 'stimuli2(t)')
+stimuli2 = brian2.TimedArray(numpy.r_[numpy.zeros(80), numpy.ones(2), numpy.zeros(100)], dt=25 * ms)
+input2 = brian2.PoissonInput(P_E[N_non + N_sub:N_non + 2 * N_sub], 's_AMPA_ext', C_selection, rate_selection, 'stimuli2(t)')
 
 # at 3s, reset selection
-stimuli_reset = TimedArray(np.r_[np.zeros(120), np.ones(2), np.zeros(100)], dt=25 * ms)
-input_reset_I = PoissonInput(P_E, 's_AMPA_ext', C_ext, rate_selection, 'stimuli_reset(t)')
-input_reset_E = PoissonInput(P_I, 's_AMPA_ext', C_ext, rate_selection, 'stimuli_reset(t)')
+stimuli_reset = brian2.TimedArray(numpy.r_[numpy.zeros(120), numpy.ones(2), numpy.zeros(100)], dt=25 * ms)
+input_reset_I = brian2.PoissonInput(P_E, 's_AMPA_ext', C_ext, rate_selection, 'stimuli_reset(t)')
+input_reset_E = brian2.PoissonInput(P_I, 's_AMPA_ext', C_ext, rate_selection, 'stimuli_reset(t)')
 
 # monitors
 N_activity_plot = 15
-sp_E_sels = [SpikeMonitor(P_E[pi:pi + N_activity_plot]) for pi in range(N_non, N_non + p * N_sub, N_sub)]
-sp_E = SpikeMonitor(P_E[:N_activity_plot])
-sp_I = SpikeMonitor(P_I[:N_activity_plot])
+sp_E_sels = [brian2.SpikeMonitor(P_E[pi:pi + N_activity_plot]) for pi in range(N_non, N_non + p * N_sub, N_sub)]
+sp_E = brian2.SpikeMonitor(P_E[:N_activity_plot])
+sp_I = brian2.SpikeMonitor(P_I[:N_activity_plot])
 
-r_E_sels = [PopulationRateMonitor(P_E[pi:pi + N_sub]) for pi in range(N_non, N_non + p * N_sub, N_sub)]
-r_E = PopulationRateMonitor(P_E[:N_non])
-r_I = PopulationRateMonitor(P_I)
+r_E_sels = [brian2.PopulationRateMonitor(P_E[pi:pi + N_sub]) for pi in range(N_non, N_non + p * N_sub, N_sub)]
+r_E = brian2.PopulationRateMonitor(P_E[:N_non])
+r_I = brian2.PopulationRateMonitor(P_I)
 
 # simulate, can be long >120s
-net = Network(collect())
+net = brian2.Network(brian2.collect())
 net.add(sp_E_sels)
 net.add(r_E_sels)
-net.run(4 * second, report='stdout')
+net.run(4 * brian2.second, report='stdout')
 
 # plotting
-title('Population rates')
-xlabel('ms')
-ylabel('Hz')
+import matplotlib.pyplot as plt
+plt.title('Population rates')
+plt.xlabel('ms')
+plt.ylabel('Hz')
 
-plot(r_E.t / ms, r_E.smooth_rate(width=25 * ms) / Hz, label='nonselective')
-plot(r_I.t / ms, r_I.smooth_rate(width=25 * ms) / Hz, label='inhibitory')
+plt.plot(r_E.t / ms, r_E.smooth_rate(width=25 * ms) / Hz, label='nonselective')
+plt.plot(r_I.t / ms, r_I.smooth_rate(width=25 * ms) / Hz, label='inhibitory')
 
 for i, r_E_sel in enumerate(r_E_sels[::-1]):
-    plot(r_E_sel.t / ms, r_E_sel.smooth_rate(width=25 * ms) / Hz, label='selective {}'.format(p - i))
+    plt.plot(r_E_sel.t / ms, r_E_sel.smooth_rate(width=25 * ms) / Hz, label='selective {}'.format(p - i))
 
-legend()
-figure()
+plt.legend()
+plt.figure()
 
-title('Population activities ({} neurons/pop)'.format(N_activity_plot))
-xlabel('ms')
-yticks([])
+plt.title('Population activities ({} neurons/pop)'.format(N_activity_plot))
+plt.xlabel('ms')
+plt.yticks([])
 
-plot(sp_E.t / ms, sp_E.i + (p + 1) * N_activity_plot, '.', markersize=2, label='nonselective')
-plot(sp_I.t / ms, sp_I.i + p * N_activity_plot, '.', markersize=2, label='inhibitory')
+plt.plot(sp_E.t / ms, sp_E.i + (p + 1) * N_activity_plot, '.', markersize=2, label='nonselective')
+plt.plot(sp_I.t / ms, sp_I.i + p * N_activity_plot, '.', markersize=2, label='inhibitory')
 
 for i, sp_E_sel in enumerate(sp_E_sels[::-1]):
-    plot(sp_E_sel.t / ms, sp_E_sel.i + (p - i - 1) * N_activity_plot, '.', markersize=2, label='selective {}'.format(p - i))
+    plt.plot(sp_E_sel.t / ms, sp_E_sel.i + (p - i - 1) * N_activity_plot, '.', markersize=2, label='selective {}'.format(p - i))
 
-legend()
-show()
+plt.legend()
+plt.show()
