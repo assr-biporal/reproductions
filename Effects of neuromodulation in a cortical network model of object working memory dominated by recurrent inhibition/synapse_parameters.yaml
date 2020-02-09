@@ -3,9 +3,7 @@ AMPA_NMDA_rec:
   Pyramidal_Cells:
     Pyramidal_Cells:
       condition: 'i != j'
-    Interneurons:
-      namespace:
-        w: '1'
+    Interneurons: {}
 GABA_rec:
   Interneurons:
     Pyramidal_Cells: {}
