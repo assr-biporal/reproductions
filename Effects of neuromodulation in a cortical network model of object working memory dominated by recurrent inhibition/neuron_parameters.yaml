@@ -12,9 +12,9 @@ Pyramidal_Cells:
     g_AMPA_ext: '2.08*nS'
     g_AMPA_rec: '0.104*nS'
     tau_AMPA: '2*ms'
-    g_NMDA_rec: '0.327*nS'
+    g_NMDA: '0.327*nS'
     Mg2: '1'
-    g_GABA_rec: '1.25*nS'
+    g_GABA: '1.25*nS'
     tau_GABA: '10*ms'
 Interneurons:
   N: 200
@@ -30,8 +30,8 @@ Interneurons:
     g_AMPA_ext: '1.62*nS'
     g_AMPA_rec: '0.081*nS'
     tau_AMPA: '2*ms'
-    g_NMDA_rec: '0.258*nS'
+    g_NMDA: '0.258*nS'
     Mg2: '1'
-    g_GABA_rec: '0.973*nS'
+    g_GABA: '0.973*nS'
     tau_GABA: '10*ms'
     
