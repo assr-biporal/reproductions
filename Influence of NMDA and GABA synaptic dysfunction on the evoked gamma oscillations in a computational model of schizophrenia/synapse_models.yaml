@@ -1,50 +1,43 @@
-AMPA:
+AMPA_NMDA:
   model: "
-    I_syn_post = I_AMPA + I_NMDA + I_GABA : siemens (summed)\n
-    I_AMPA = g_AMPA*(V_pre-V_E) : ampere\n
-    g_AMPA = scl*(g_AMPA_r + g_AMPA_d)/norm_AMPA : siemens (clock-driven)\n
+    I_AMPA_post = g_AMPA*(V_pre - V_E) : ampere\n
+    g_AMPA = scl_AMPA*(g_AMPA_r + g_AMPA_d)/norm_AMPA : siemens (clock-driven)\n
     dg_AMPA_r/dt = -g_AMPA_r/tau_AMPA_r : siemens (clock-driven)\n
     dg_AMPA_d/dt = -g_AMPA_d/tau_AMPA_d : siemens (clock-driven)\n
+    I_NMDA_post = g_NMDA*(V_pre - V_E) : ampere\n
+    g_NMDA = scl_NMDA*(g_NMDA_r + g_NMDA_d)/norm_NMDA : siemens (clock-driven)\n
+    dg_NMDA_r/dt = -g_NMDA_r/tau_NMDA_r : siemens (clock-driven)\n
+    dg_NMDA_d/dt = -g_NMDA_d/tau_NMDA_d : siemens (clock-driven)\n
     "
   on_pre: "
-    g_r += w\n
-    g_d += w\n
+    g_AMPA_r += w\n
+    g_AMPA_d += w\n
+    g_NMDA_r += w\n
+    g_NMDA_d += w\n
     "
   namespace:
-    norm: '0.472689'
-    tau_r: '0.5*ms'
-    tau_d: '20*ms'
-    noise: '0*uS/ms' #noise=0 is temporary
-NMDA:
-  model: "
-    g_NMDA_post = scl*(g_r + g_d)/norm : siemens (summed)\n
-    dg_r/dt = -g_r/tau_r : siemens (clock-driven)\n
-    dg_d/dt = -g_d/tau_d : siemens (clock-driven)\n
-    "
-  on_pre: "
-    g_r += w\n
-    g_d += w\n
-    "
-  namespace:
-    norm: '0.904821'
-    tau_r: '2*ms'
-    tau_d: '100*ms'
+    norm_AMPA: '0.472689'
+    tau_AMPA_r: '0.5*ms'
+    tau_AMPA_d: '20*ms'
+    norm_NMDA: '0.904821'
+    tau_NMDA_r: '2*ms'
+    tau_NMDA_d: '100*ms'    
     noise: '0*uS/ms' #noise=0 is temporary
 GABA:
   model: "
-    g_GABA_post = scl*(g_r + g_d)/norm : siemens (summed)\n
-    dg_r/dt = -g_r/tau_r : siemens (clock-driven)\n
-    dg_d/dt = -g_d/tau_d : siemens (clock-driven)\n
+    g_GABA_post = scl_GABA*(g_GABA_r + g_GABA_d)/norm_GABA : siemens (summed)\n
+    dg_GABA_r/dt = -g_GABA_r/tau_GABA_r : siemens (clock-driven)\n
+    dg_GABA_d/dt = -g_GABA_d/tau_GABA_d : siemens (clock-driven)\n
     "
   on_pre: "
-    g_r += w\n
-    g_d += w\n
+    g_GABA_r += -w\n
+    g_GABA_d += -w\n
     "
   namespace:
-    norm: '0.697016'
-    tau_r: '0.5*ms'
-    tau_d: '5*ms'
-    noise: '0*uS/ms' #noise=0 is temporary
+    norm_GABA: '0.697016'
+    tau_GABA_r: '0.5*ms'
+    tau_GABA_d: '5*ms'
+    noise: '0*uS/ms'
 #Questions
 #- Why only GABA_A has no noise?
 #- Don't they have any delays?
