@@ -1,0 +1,2 @@
+dV/dt = (-g_m*(V - V_res) + I_syn)/C_m : volt
+I_syn = I_AMPA + I_NMDA + I_GABA : ampere
