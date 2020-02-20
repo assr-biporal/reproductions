@@ -1,2 +1,14 @@
-dV/dt = (-g_m*(V - V_res) + I_syn)/C_m : volt
+dv/dt = (-g_m*(v - V_res) + I_syn)/C_m : volt
 I_syn = I_AMPA + I_NMDA + I_GABA : ampere
+I_AMPA = -scl_AMPA*g_AMPA*(v - V_E) : ampere
+g_AMPA = (g_AMPA_d - g_AMPA_r)/norm_AMPA : siemens
+dg_AMPA_r/dt = -g_AMPA_r/tau_AMPA_r : siemens
+dg_AMPA_d/dt = -g_AMPA_d/tau_AMPA_d : siemens
+I_NMDA = -scl_NMDA*g_NMDA*(v - V_E)/(1. + exp(-0.062*v)/3.57) : ampere
+g_NMDA = (g_NMDA_d - g_NMDA_r)/norm_NMDA : siemens
+dg_NMDA_r/dt = -g_NMDA_r/tau_NMDA_r : siemens
+dg_NMDA_d/dt = -g_NMDA_d/tau_NMDA_d : siemens
+I_GABA = -scl_GABA*g_GABA*(v - V_I) : ampere
+g_GABA = (g_GABA_d - g_GABA_r)/norm_GABA : siemens
+dg_GABA_r/dt = -g_GABA_r/tau_GABA_r : siemens
+dg_GABA_d/dt = -g_GABA_d/tau_GABA_d : siemens
