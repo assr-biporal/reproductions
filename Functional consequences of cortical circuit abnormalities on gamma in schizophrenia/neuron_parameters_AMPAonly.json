@@ -1,0 +1,74 @@
+{
+    "Pyramidal_Cells":{
+        "N": 800,
+        "threshold": "v > -52*mV",
+        "reset": "v = -59*mV",
+        "namespace":{
+            "V_L": "-70*mV",
+            "V_E": "0*mV",
+            "V_I": "-70*mV",
+            "g_m": "25*nS",
+            "C_m": "0.5*nF",
+            "tau_AMPA_r": "0.5*ms",
+            "tau_AMPA_d": "2.*ms",
+            "scl_AMPA": "1.",
+            "norm_AMPA": "0.472689",
+            "tau_NMDA_r": "2.*ms",
+            "tau_NMDA_d": "100*ms",
+            "scl_NMDA": "0.",
+            "norm_NMDA": "0.904821",
+            "tau_GABA_r": "0.5*ms",
+            "tau_GABA_d": "5.*ms",
+            "scl_GABA": "0.",
+            "norm_GABA": "0.697016"
+        }
+    },
+    "Regular_Spiking_Interneurons":{
+        "N": 150,
+        "threshold": "v > -52*mV",
+        "reset": "v = -59*mV",
+        "namespace":{
+            "V_L": "-70*mV",
+            "V_E": "0*mV",
+            "V_I": "-70*mV",
+            "g_m": "25*nS",
+            "C_m": "0.5*nF",
+            "tau_AMPA_r": "0.5*ms",
+            "tau_AMPA_d": "2.*ms",
+            "scl_AMPA": "1.",
+            "norm_AMPA": "0.472689",
+            "tau_NMDA_r": "2.*ms",
+            "tau_NMDA_d": "100*ms",
+            "scl_NMDA": "0.",
+            "norm_NMDA": "0.904821",
+            "tau_GABA_r": "0.5*ms",
+            "tau_GABA_d": "5.*ms",
+            "scl_GABA": "0.",
+            "norm_GABA": "0.697016"
+        }
+    },
+    "Fast_Spiking_Interneurons":{
+        "N": 50,
+        "threshold": "v > -52*mV",
+        "reset": "v = -59*mV",
+        "namespace":{
+            "V_L": "-70*mV",
+            "V_E": "0*mV",
+            "V_I": "-70*mV",
+            "g_m": "20*nS",
+            "C_m": "0.2*nF",
+            "tau_AMPA_r": "0.5*ms",
+            "tau_AMPA_d": "2.*ms",
+            "scl_AMPA": "1.",
+            "norm_AMPA": "0.472689",
+            "tau_NMDA_r": "2.*ms",
+            "tau_NMDA_d": "100*ms",
+            "scl_NMDA": "0.",
+            "norm_NMDA": "0.904821",
+            "tau_GABA_r": "0.5*ms",
+            "tau_GABA_d": "5.*ms",
+            "scl_GABA": "0.",
+            "norm_GABA": "0.697016"
+        }
+    }
+}
