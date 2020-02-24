@@ -1,9 +1,6 @@
 {
-    "AMPA":{
-        "on_pre":"g_AMPA_r += w\ng_AMPA_d += w"
-    },
-    "NMDA":{
-        "on_pre":"g_NMDA_r += w\ng_NMDA_d += w"
+    "AMPA_NMDA":{
+        "on_pre":"g_AMPA_r += w\ng_AMPA_d += w\ng_NMDA_r += w\ng_NMDA_d += w"
     },
     "GABA":{
         "on_pre":"g_GABA_r += w\ng_GABA_d += w"

@@ -1,27 +1,5 @@
 {
-    "AMPA":{
-        "Pyramidal_Cells":{
-            "Pyramidal_Cells":{
-                "p": 0.1,
-                "namespace":{
-                    "w": "825*nS"
-                }
-            },
-            "Regular_Spiking_Interneurons":{
-                "p": 0.4,
-                "namespace":{
-                    "w": "660*nS"
-                }
-            },
-            "Fast_Spiking_Interneurons":{
-                "p": 0.4,
-                "namespace":{
-                    "w": "1567.5*nS"
-                }
-            }
-        }
-    },
-    "NMDA":{
+    "AMPA_NMDA":{
         "Pyramidal_Cells":{
             "Pyramidal_Cells":{
                 "p": 0.1,

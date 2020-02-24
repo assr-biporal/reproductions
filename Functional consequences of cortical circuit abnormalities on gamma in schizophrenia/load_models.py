@@ -5,7 +5,7 @@ def parse_namespace(namespace_dict):
     return {name : eval(quantity, brian2.core.namespace.DEFAULT_UNITS) for name, quantity in namespace_dict.items()}
 
 
-def load_neurongroups(neuron_model: str, neuron_params_dict: dict):
+def load_neurongroups(neuron_model: str, neuron_params_dict: dict, **keyargs):
     group_dict = dict()
     for neuron_name, neuron_params in neuron_params_dict.items():
         if 'namespace' in neuron_params:
@@ -18,7 +18,7 @@ def load_neurongroups(neuron_model: str, neuron_params_dict: dict):
             neuron_model,
             name=neuron_name,
             namespace=neuron_namespace,
-            **neuron_params
+            **neuron_params, **keyargs
         )
     return group_dict
 
