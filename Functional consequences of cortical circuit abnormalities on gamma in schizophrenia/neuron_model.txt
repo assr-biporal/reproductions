@@ -1,4 +1,4 @@
-dv/dt = (-g_m*(v - V_L) + I_syn)/C_m : volt
+dv/dt = (v - V_L)/tau_m + I_syn/(1000000*uF) : volt
 I_syn = I_AMPA + I_NMDA + I_GABA : ampere
 I_AMPA = -scl_AMPA*g_AMPA*(v - V_E) : ampere
 g_AMPA = (g_AMPA_d - g_AMPA_r)/norm_AMPA : siemens
