@@ -1,0 +1,9 @@
+#ifndef _INCLUDED_Regular_Spiking_Interneurons_stateupdater_codeobject
+#define _INCLUDED_Regular_Spiking_Interneurons_stateupdater_codeobject
+
+#include "objects.h"
+
+void _run_Regular_Spiking_Interneurons_stateupdater_codeobject();
+
+
+#endif
