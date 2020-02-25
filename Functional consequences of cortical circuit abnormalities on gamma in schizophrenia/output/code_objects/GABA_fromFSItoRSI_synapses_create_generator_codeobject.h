@@ -1,9 +1,0 @@
-#ifndef _INCLUDED_GABA_fromFSItoRSI_synapses_create_generator_codeobject
-#define _INCLUDED_GABA_fromFSItoRSI_synapses_create_generator_codeobject
-
-#include "objects.h"
-
-void _run_GABA_fromFSItoRSI_synapses_create_generator_codeobject();
-
-
-#endif

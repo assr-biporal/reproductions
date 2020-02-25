@@ -1,9 +1,0 @@
-#ifndef _INCLUDED_Regular_Spiking_Interneurons_thresholder_codeobject
-#define _INCLUDED_Regular_Spiking_Interneurons_thresholder_codeobject
-
-#include "objects.h"
-
-void _run_Regular_Spiking_Interneurons_thresholder_codeobject();
-
-
-#endif

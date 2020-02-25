@@ -1,9 +1,0 @@
-#ifndef _INCLUDED_AMPA_NMDA_fromPCtoRSI_synapses_create_generator_codeobject
-#define _INCLUDED_AMPA_NMDA_fromPCtoRSI_synapses_create_generator_codeobject
-
-#include "objects.h"
-
-void _run_AMPA_NMDA_fromPCtoRSI_synapses_create_generator_codeobject();
-
-
-#endif
